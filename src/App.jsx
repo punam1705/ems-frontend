@@ -8,8 +8,15 @@ import LoginComponent from './components/LoginComponent'
 import OAuthSuccess from './components/OAuthSuccess'
 import ProtectedRoute from './components/ProtectedRoute'
 import UserProfile from './components/UserProfile'
-
+import { useEffect } from 'react'
+ const API = import.meta.env.VITE_API_URL;
 function App() {
+
+  useEffect(() => {
+  fetch(`${API}`)
+    .catch(() => {});
+}, []);
+
 
   return (
     <BrowserRouter>
