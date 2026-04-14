@@ -1,15 +1,24 @@
 import axios from "axios";
+const API = import.meta.env.VITE_API_URL;
+const REST_API_BASE_URL = `${API}/api/employees`;
+const api = axios.create({
+  baseURL: REST_API_BASE_URL,
+});
 
-const REST_API_BASE_URL = 'http://localhost:8080/api/employees';
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
 
-export const listEmployees = () => axios.get(REST_API_BASE_URL);
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
 
-export const createEmployee = (employee) => axios.post(REST_API_BASE_URL, employee);
+  return config;
+});
 
-export const getEmployee = (employeeId) => axios.get(REST_API_BASE_URL + '/' + employeeId);
-
-export const updateEmployee = (employeeId, employee) => axios.put(REST_API_BASE_URL + '/' + employeeId, employee);
-
-export const deleteEmployee = (employeeId) => axios.delete(REST_API_BASE_URL + '/' + employeeId);
-
-
+export const listEmployees = () => api.get("");
+export const createEmployee = (employee) => api.post("", employee);
+export const getEmployee = (employeeId) => api.get(`/${employeeId}`);
+export const updateEmployee = (employeeId, employee) =>
+  api.put(`/${employeeId}`, employee);
+export const deleteEmployee = (employeeId) =>
+  api.delete(`/${employeeId}`);

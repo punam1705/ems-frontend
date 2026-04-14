@@ -1,16 +1,26 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderComponent = () => {
+
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <header>
-        <nav className='navbar navbar-dark bg-dark'>
-          <a href='#' className='navbar-brand'>Employee Management System</a>
+    <header className="bg-gray-900 text-white shadow">
 
-        </nav>
-      </header>
-    </div>
-  )
-}
+      <div className="w-full px-4 md:px-8 lg:px-16 py-3 flex justify-between items-center">
 
-export default HeaderComponent
+        <p
+          onClick={() => navigate('/')}
+          className="text-base sm:text-lg font-semibold cursor-pointer"
+        >
+          Employee Management System
+        </p>
+
+      </div>
+
+    </header>
+  );
+};
+
+export default HeaderComponent;
