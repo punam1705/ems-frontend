@@ -73,6 +73,8 @@ const ListEmployeeComponent = () => {
               <th className="py-3 px-6 text-left">First Name</th>
               <th className="py-3 px-6 text-left">Last Name</th>
               <th className="py-3 px-6 text-left">Email</th>
+               <th className="py-3 px-6 text-left">Joining Date</th>
+                <th className="py-3 px-6 text-left">Salary</th>
               <th className="py-3 px-6 text-center">Actions</th>
             </tr>
           </thead>
@@ -89,7 +91,8 @@ const ListEmployeeComponent = () => {
                 <td className="py-3 px-6">{emp.firstName}</td>
                 <td className="py-3 px-6">{emp.lastName}</td>
                 <td className="py-3 px-6 break-all">{emp.email}</td>
-
+                <td className="py-3 px-6">{emp.joiningDate}</td>
+                <td className="py-3 px-6">₹ {emp.salary?.toLocaleString()}</td>
                 <td className="py-3 px-6 text-center space-x-2">
                   <button
                     onClick={() => navigator(`/edit-employee/${emp.id}`)}
@@ -133,6 +136,16 @@ const ListEmployeeComponent = () => {
             <div className="mb-4">
               <p className="text-xs text-gray-400">Email</p>
               <p className="text-sm break-all">{emp.email}</p>
+            </div>
+
+            <div className="mb-4">
+              <p className="text-xs text-gray-400">Joining Date</p>
+              <p className="text-sm">{emp.joiningDate}</p>
+            </div>
+
+            <div className="mb-4">
+              <p className="text-xs text-gray-400">Salary</p>
+              <p className="text-sm">₹ {emp.salary?.toLocaleString()}</p>
             </div>
 
             <div className="flex gap-2">
