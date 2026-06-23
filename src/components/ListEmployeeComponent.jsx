@@ -30,13 +30,36 @@ const ListEmployeeComponent = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
           Employee Management 👨‍💼
         </h2>
+  <div className="flex gap-3">
 
-        <button
+    <button
+      onClick={() => navigator('/leave-requests')}
+      className="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition"
+    >
+      📅 Leave Requests
+    </button>
+
+ <button
+    onClick={() => navigator('/project-assignments')}
+    className="bg-purple-600 text-white px-6 py-2 rounded-lg shadow hover:bg-purple-700 transition"
+  >
+    🚀 Project Assignments
+  </button>
+  
+    <button
+      onClick={() => navigator('/add-employee')}
+      className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition"
+    >
+      + Add Employee
+    </button>
+
+  </div>
+        {/* <button
           onClick={() => navigator('/add-employee')}
           className="w-full md:w-auto bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition"
         >
           + Add Employee
-        </button>
+        </button> */}
       </div>
 
       {/* 🔥 DESKTOP TABLE */}
